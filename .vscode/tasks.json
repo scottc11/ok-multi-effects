@@ -1,0 +1,87 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "Build and Upload",
+			"command": "make clean; make; make program",
+			"group": {
+				"isDefault": false,
+				"kind": "build"
+			},
+			"options": {
+				"cwd": "${workspaceFolder}/MultiEffects"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+		},
+		{
+			"type": "shell",
+			"label": "Build",
+			"command": "make",
+			"group": {
+				"isDefault": false,
+				"kind": "build"
+			},
+			"options": {
+				"cwd": "${workspaceFolder}/MultiEffects"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+		},
+		{
+			"type": "shell",
+			"label": "Clean",
+			"command": "make clean",
+			"group": {
+				"isDefault": false,
+				"kind": "build"
+			},
+			"options": {
+				"cwd": "${workspaceFolder}/MultiEffects"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+		},
+		{
+			"command": "make clean;DEBUG=1 make",
+			"dependsOn": [
+				"build_libdaisy",
+				"build_daisysp"
+			],
+			"label": "build_all_debug",
+			"options": {
+				"cwd": "${workspaceFolder}/MultiEffects"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"type": "shell"
+		},
+		{
+			"command": "make",
+			"label": "build_libdaisy",
+			"options": {
+				"cwd": "${workspaceFolder}/libDaisy"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"type": "shell"
+		},
+		{
+			"command": "make",
+			"label": "build_daisysp",
+			"options": {
+				"cwd": "${workspaceFolder}/DaisySP"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"type": "shell"
+		}
+	]
+}
